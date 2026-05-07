@@ -1,0 +1,839 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.DropShadow?>
+
+<StackPane fx:id="rootPane" fx:controller="com.example.scrill.HelloController"
+           stylesheets="@style.css"
+           maxHeight="-Infinity" maxWidth="-Infinity"
+           minHeight="-Infinity" minWidth="-Infinity"
+           prefHeight="720.0" prefWidth="1080.0"
+           xmlns="http://javafx.com/javafx/17"
+           xmlns:fx="http://javafx.com/fxml/1">
+
+   <children>
+      <BorderPane style="-fx-background-color: -main-bg;">
+
+         <top>
+            <HBox alignment="CENTER" prefHeight="70.0" style="-fx-background-color: -sec-bg; -fx-border-color: -border-color; -fx-border-width: 0 0 1 0;" BorderPane.alignment="CENTER">
+               <padding>
+                  <Insets left="20.0" right="20.0" />
+               </padding>
+               <children>
+
+                  <HBox alignment="CENTER_LEFT" spacing="15.0" HBox.hgrow="ALWAYS" maxWidth="Infinity" prefWidth="300.0">
+                     <children>
+                        <Region fx:id="settingsIcon" prefWidth="18" prefHeight="18" minWidth="1" minHeight="1" maxHeight="18" styleClass="svg-icon, settings-icon" />
+
+                        <HBox alignment="CENTER_LEFT" spacing="12.0">
+                           <Region fx:id="backIcon" onMouseClicked="#onBackClick" prefWidth="15" prefHeight="18" minWidth="1" minHeight="1" maxHeight="18" styleClass="svg-icon, back-icon" />
+                           <Region fx:id="forwardIcon" onMouseClicked="#onForwardClick" prefWidth="15" prefHeight="18" minWidth="1" minHeight="1" maxHeight="18" styleClass="svg-icon, forward-icon" />
+                        </HBox>
+                     </children>
+                  </HBox>
+
+                  <VBox alignment="CENTER" minWidth="300.0">
+                     <children>
+                        <Label text="Scrill"
+                               style="-fx-text-fill: -text-white; -fx-font-size: 24px; -fx-font-weight: bold;" />
+                     </children>
+                  </VBox>
+
+                  <HBox alignment="CENTER_RIGHT" spacing="10.0" HBox.hgrow="ALWAYS" maxWidth="Infinity" prefWidth="300.0">
+                     <children>
+                        <Label fx:id="profileNameLabel" text="Guest" style="-fx-text-fill: -text-white; -fx-font-size: 14px; -fx-font-weight: bold;" />
+                        <StackPane fx:id="profileBtn" onMouseClicked="#onProfileBtnClick" style="-fx-cursor: hand;">
+                           <padding>
+                              <Insets left="10" right="10" />
+                           </padding>
+                           <FontIcon iconLiteral="mdi-account-circle" iconSize="26" styleClass="icon-light" />
+                        </StackPane>
+
+                        <Region prefWidth="1.0" prefHeight="25.0" maxHeight="25.0" style="-fx-background-color: -border-color;" />
+
+                        <HBox alignment="CENTER" spacing="15.0">
+                           <padding>
+                              <Insets left="10" />
+                           </padding>
+                           <ImageView fx:id="minimizeBtn" fitHeight="16.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                              <image><Image url="@Icons/minimize.png" /></image>
+                              <effect><ColorAdjust brightness="1.0" /></effect>
+                           </ImageView>
+                           <ImageView fx:id="maximizeBtn" fitHeight="16.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                              <image><Image url="@Icons/maxi.png" /></image>
+                              <effect><ColorAdjust brightness="1.0" /></effect>
+                           </ImageView>
+                           <ImageView fx:id="closeBtn" fitHeight="16.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                              <image><Image url="@Icons/close.png" /></image>
+                              <effect><ColorAdjust brightness="1.0" /></effect>
+                           </ImageView>
+                        </HBox>
+                     </children>
+                  </HBox>
+
+               </children>
+            </HBox>
+         </top>
+
+         <center>
+            <SplitPane fx:id="mainSplitPane" dividerPositions="0.2" styleClass="custom-split-pane" BorderPane.alignment="CENTER">
+               <items>
+
+                  <VBox fx:id="sidebar" minWidth="100.0" maxWidth="400.0" prefWidth="220.0" spacing="15.0" style="-fx-background-color: -main-bg;">
+                     <padding>
+                        <Insets bottom="20.0" left="27.0" right="15.0" top="20.0" />
+                     </padding>
+                     <children>
+                        <HBox fx:id="navHomeBtn" onMouseClicked="#onHomeClick" alignment="CENTER_LEFT" spacing="15.0" styleClass="sidebar-btn">
+                           <FontIcon iconLiteral="mdi-home" iconSize="24" styleClass="icon-accent" />
+                           <Label text="Home" style="-fx-text-fill: -text-white; -fx-font-size: 15px; -fx-font-weight: bold;" />
+                        </HBox>
+                        <HBox fx:id="navLibraryBtn" alignment="CENTER_LEFT" spacing="15.0" styleClass="sidebar-btn" onMouseClicked="#onLibraryClick">
+                           <FontIcon iconLiteral="mdi-music-box-outline" iconSize="24" styleClass="icon-gray" />
+                           <Label text="My Library" style="-fx-text-fill: -text-gray; -fx-font-size: 15px; -fx-font-weight: bold;" />
+                        </HBox>
+
+                        <Separator style="-fx-opacity: 0.1;" />
+
+                        <HBox alignment="CENTER_LEFT">
+                           <children>
+                              <Label fx:id="playlistsHeaderLabel" text="PLAYLISTS" style="-fx-text-fill: -text-dark-gray; -fx-font-size: 11px; -fx-font-weight: bold;" />
+                              <Region HBox.hgrow="ALWAYS" />
+                              <Label fx:id="addPlaylistBtn" onMouseClicked="#onAddPlaylistClick" text="+" styleClass="add-playlist-btn" />
+                           </children>
+                        </HBox>
+
+                        <ScrollPane fitToWidth="true" style="-fx-background-color: transparent;" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED" VBox.vgrow="ALWAYS">
+                           <content>
+                              <VBox fx:id="playlistsContainer" spacing="8.0" />
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </VBox>
+
+                  <VBox spacing="25.0" styleClass="main-vbox">
+                     <padding>
+                        <Insets bottom="20.0" left="40.0" right="40.0" top="30.0" />
+                     </padding>
+                     <children>
+
+                        <HBox alignment="CENTER_LEFT" spacing="20.0">
+                           <children>
+                              <ImageView fx:id="mainHeaderCover" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" />
+                              <VBox spacing="2.0">
+                                 <children>
+                                    <Label fx:id="mainTitleLabel" text="Your Track List" style="-fx-text-fill: -text-white; -fx-font-size: 28px; -fx-font-weight: bold;" />
+                                    <Label fx:id="mainSubtitleLabel" text="Manage and play your collection" style="-fx-text-fill: -text-dark-gray; -fx-font-size: 13px;" />
+                                    <Label fx:id="libraryStatsLabel" text="🎵 0 Tracks   •   ⏱ Loading..." style="-fx-text-fill: -text-dark-gray; -fx-font-size: 13px; -fx-padding: 5 0 0 0;" />
+                                 </children>
+                              </VBox>
+                              <Region HBox.hgrow="ALWAYS" />
+                              <HBox fx:id="searchContainer" alignment="CENTER" maxHeight="36.0" spacing="10.0" style="-fx-background-color: -tertiary-bg; -fx-background-radius: 20; -fx-padding: 8 15 8 15;">
+                                 <children>
+                                    <FontIcon iconLiteral="mdi-magnify" iconSize="18" styleClass="icon-dark" />
+                                    <StackPane alignment="CENTER_RIGHT">
+                                       <children>
+                                          <TextField fx:id="searchField" promptText="Search songs, artists..."
+                                                     style="-fx-background-color: transparent; -fx-text-fill: -text-white; -fx-prompt-text-fill: -text-dark-gray; -fx-font-size: 14px;"
+                                                     prefWidth="220.0" />
+                                          <FontIcon fx:id="clearSearchIcon" style="-fx-cursor: hand;" styleClass="icon-gray" iconLiteral="mdi-close" iconSize="18">
+                                             <StackPane.margin><Insets right="5.0" /></StackPane.margin>
+                                          </FontIcon>
+                                       </children>
+                                    </StackPane>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </HBox>
+
+                        <StackPane fx:id="mainContentArea" VBox.vgrow="ALWAYS">
+                           <children>
+
+                              <ScrollPane fx:id="homeDashboardScroll" fitToWidth="true" style="-fx-background-color: transparent;" vbarPolicy="AS_NEEDED" hbarPolicy="NEVER" visible="false">
+                           <content>
+                              <VBox fx:id="dashboardMainVBox" spacing="35.0" style="-fx-padding: 26 30 40 26; -fx-background-color: transparent;">
+
+                                 <HBox fx:id="dashboardFirstRow" spacing="20.0" maxWidth="Infinity">
+
+                                    <StackPane HBox.hgrow="ALWAYS" minWidth="250" maxWidth="500" styleClass="hero-card" prefHeight="160">
+                                       <children>
+                                          <VBox spacing="0" style="-fx-padding: 25;">
+                                             <HBox alignment="CENTER_LEFT">
+                                                <Label fx:id="greetingLabel" text="YOUR LISTENING" />
+                                                <Region HBox.hgrow="ALWAYS" />
+                                             </HBox>
+                                             <Region VBox.vgrow="ALWAYS" />
+                                             <HBox spacing="40.0" alignment="BOTTOM_LEFT">
+                                                <VBox spacing="0">
+                                                   <Label fx:id="homeTotalListened" text="0h 0m" style="-fx-text-fill: white; -fx-font-size: 38px; -fx-font-weight: bold;" />
+                                                   <Label text="All Time" style="-fx-text-fill: rgba(255,255,255,0.9); -fx-font-size: 13px; -fx-font-weight: bold;" />
+                                                </VBox>
+                                                <VBox spacing="0" alignment="BOTTOM_LEFT">
+                                                   <Label fx:id="homeWeeklyListened" text="0h 0m" style="-fx-text-fill: white; -fx-font-size: 22px; -fx-font-weight: bold;" />
+                                                   <Label text="This Week" style="-fx-text-fill: rgba(255,255,255,0.9); -fx-font-size: 12px;" />
+                                                </VBox>
+                                             </HBox>
+                                          </VBox>
+                                       </children>
+                                    </StackPane>
+
+                                    <VBox spacing="12.0" HBox.hgrow="ALWAYS" minWidth="260" maxWidth="380">
+                                       <HBox spacing="12.0">
+                                          <VBox styleClass="stat-card" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+                                             <HBox alignment="CENTER_LEFT" spacing="8">
+                                                <FontIcon iconLiteral="mdi-music-note" iconSize="16" styleClass="icon-accent"/>
+                                                <Label text="TRACKS" styleClass="stat-title" />
+                                             </HBox>
+                                             <Label fx:id="homeTotalTracks" text="0" styleClass="stat-value" />
+                                             <Label text="in your library" style="-fx-text-fill: -text-dark-gray; -fx-font-size: 11px;" />
+                                          </VBox>
+                                          <VBox styleClass="stat-card" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+                                             <HBox alignment="CENTER_LEFT" spacing="8">
+                                                <FontIcon iconLiteral="mdi-playlist-plus" iconSize="16" styleClass="icon-accent"/>
+                                                <Label text="PLAYLISTS" styleClass="stat-title" />
+                                             </HBox>
+                                             <Label fx:id="homeTotalPlaylists" text="0" styleClass="stat-value" />
+                                             <Label text="created by you" style="-fx-text-fill: -text-dark-gray; -fx-font-size: 11px;" />
+                                          </VBox>
+                                       </HBox>
+                                       <VBox styleClass="stat-card" HBox.hgrow="ALWAYS" maxWidth="Infinity" style="-fx-padding: 15 20;">
+                                          <HBox alignment="CENTER_LEFT" spacing="8">
+                                             <FontIcon iconLiteral="mdi-clock" iconSize="16" styleClass="icon-accent"/>
+                                             <Label text="LIBRARY DURATION" styleClass="stat-title" />
+                                          </HBox>
+                                          <Label fx:id="homeTotalDuration" text="0h 0m" styleClass="stat-value" />
+                                          <Label text="of music" style="-fx-text-fill: -text-dark-gray; -fx-font-size: 11px;" />
+                                       </VBox>
+                                    </VBox>
+
+                                    <StackPane fx:id="nowPlayingWidget" HBox.hgrow="ALWAYS" minWidth="220"
+                                               style="-fx-background-color: -tertiary-bg; -fx-background-radius: 20;
+                                                                        -fx-border-color: -border-color; -fx-border-radius: 20;">
+                                       <VBox fx:id="nowPlayingContent" alignment="CENTER" spacing="0" style="-fx-padding: 20;">
+                                          <Label text="NOW PLAYING" style="-fx-text-fill: -text-dark-gray; -fx-font-size: 10px;
+                                                                              -fx-font-weight: bold; -fx-letter-spacing: 2px;" />
+                                       </VBox>
+                                    </StackPane>
+
+                                 </HBox>
+
+                                 <VBox spacing="15.0" maxWidth="Infinity">
+                                    <Label text="Your Top Playlists" style="-fx-text-fill: -text-white; -fx-font-size: 22px; -fx-font-weight: bold;" />
+                                    <FlowPane fx:id="homePlaylistsContainer" hgap="15.0" vgap="15.0" prefWrapLength="2000.0" />
+                                 </VBox>
+
+                                       <HBox spacing="40.0" maxWidth="Infinity">
+
+                                          <VBox spacing="35.0" HBox.hgrow="ALWAYS" minWidth="310" maxWidth="Infinity">
+                                             <VBox spacing="15.0">
+                                                <Label text="Jump Back In"
+                                                       style="-fx-text-fill: -text-white; -fx-font-size: 22px; -fx-font-weight: bold;" />
+                                                <ScrollPane fx:id="jumpBackInScroll" fitToHeight="true"
+                                                            style="-fx-background-color: transparent;"
+                                                            hbarPolicy="AS_NEEDED" vbarPolicy="NEVER">
+                                                   <content>
+                                                      <HBox fx:id="recentlyAddedContainer" spacing="15.0" style="-fx-padding: 5 5 15 5;" />
+                                                   </content>
+                                                </ScrollPane>
+                                             </VBox>
+
+                                             <VBox spacing="15.0">
+                                                <VBox fx:id="weeklyActivityContainer" />
+                                                <VBox fx:id="mostPlayedContainer" />
+                                                <VBox fx:id="dailyGoalContainer" />
+                                                <VBox fx:id="streakContainer" />
+                                                <VBox fx:id="paletteContainer" />
+                                             </VBox>
+                                          </VBox>
+                                          <VBox spacing="35.0" HBox.hgrow="ALWAYS" minWidth="300" maxWidth="Infinity">
+                                             <VBox spacing="15.0">
+                                                <Label text="Top Artists" style="-fx-text-fill: -text-white; -fx-font-size: 22px; -fx-font-weight: bold;" />
+                                                <FlowPane fx:id="topArtistsContainer" hgap="15.0" vgap="15.0" prefWrapLength="1000.0" />
+                                             </VBox>
+
+                                             <VBox spacing="15.0">
+                                                <Label text="Heavy Rotation" style="-fx-text-fill: -text-white; -fx-font-size: 22px; -fx-font-weight: bold;" />
+                                                <VBox fx:id="heavyRotationContainer" spacing="12.0" />
+                                             </VBox>
+                                          </VBox>
+
+                                       </HBox>
+
+                                    </VBox>
+                                 </content>
+                              </ScrollPane>
+                              <TableView fx:id="trackTable" styleClass="track-table" style="-fx-background-color: transparent;">
+                                 <columns>
+                                    <TableColumn fx:id="idCol" minWidth="30.0" prefWidth="40.0" maxWidth="50.0" text="#" />
+                                    <TableColumn fx:id="coverCol" minWidth="60.0" prefWidth="60.0" maxWidth="60.0" text="" />
+                                    <TableColumn fx:id="infoCol" minWidth="200.0" prefWidth="350.0" text="Track" />
+                                    <TableColumn fx:id="dateCol" minWidth="100.0" prefWidth="130.0" maxWidth="160.0" text="Date Added" />
+                                    <TableColumn fx:id="durationCol" minWidth="70.0" prefWidth="85.0" maxWidth="110.0" text="Duration" />
+                                 </columns>
+                                 <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY" /></columnResizePolicy>
+                              </TableView>
+
+                              <AnchorPane pickOnBounds="false">
+                                 <children>
+                                    <StackPane fx:id="addSongFAB" onMouseClicked="#openAddTrackModal"
+                                               AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0"
+                                               prefHeight="56.0" prefWidth="56.0" minWidth="56.0" maxWidth="56.0"
+                                               style="-fx-cursor: hand;" alignment="CENTER_RIGHT">
+                                       <children>
+                                          <Rectangle fx:id="fabBackground" style="-fx-fill: -accent-purple;"
+                                                     height="56.0" width="56.0"
+                                                     arcHeight="56.0" arcWidth="56.0"
+                                                     StackPane.alignment="CENTER_RIGHT">
+                                             <effect>
+                                                <DropShadow color="#00000044" radius="10" offsetY="2" />
+                                             </effect>
+                                          </Rectangle>
+
+                                          <HBox alignment="CENTER_RIGHT" mouseTransparent="true" spacing="10">
+                                             <padding>
+                                                <Insets right="14.0" />
+                                             </padding>
+                                             <children>
+                                                <Label fx:id="addTrackLabel" text="Add Song" opacity="0.0" visible="false" styleClass="fab-text" />
+
+                                                <FontIcon fx:id="addSongIcon" iconLiteral="mdi-plus" iconSize="28" styleClass="fab-icon" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </StackPane>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </StackPane>
+
+                     </children>
+                  </VBox>
+               </items>
+            </SplitPane>
+         </center>
+
+         <bottom>
+            <HBox alignment="CENTER" prefHeight="100.0" style="-fx-background-color: -sec-bg; -fx-border-color: -border-color; -fx-border-width: 1 0 0 0;" BorderPane.alignment="CENTER">
+               <padding>
+                  <Insets bottom="5.0" left="25.0" right="25.0" top="5.0" />
+               </padding>
+               <children>
+
+                  <HBox alignment="CENTER_LEFT" spacing="12.0" HBox.hgrow="ALWAYS" maxWidth="Infinity" prefWidth="350.0" minWidth="200.0">
+                     <children>
+                        <ImageView fx:id="coverImage" fitHeight="65.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true" />
+
+                        <VBox alignment="CENTER_LEFT" spacing="2.0" HBox.hgrow="ALWAYS" maxWidth="Infinity" minWidth="0">
+                           <children>
+                              <StackPane fx:id="titleViewport" alignment="CENTER_LEFT" HBox.hgrow="ALWAYS" maxWidth="Infinity" minWidth="0">
+                                 <children>
+                                    <Label fx:id="trackTitleLabel" text="Название"
+                                           style="-fx-text-fill: -text-white; -fx-font-weight: bold; -fx-font-size: 16px;" />
+                                 </children>
+                              </StackPane>
+
+                              <Label fx:id="artistNameLabel" text="Исполнитель"
+                                     style="-fx-text-fill: -text-gray; -fx-font-size: 14px;" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+
+                  <VBox alignment="CENTER" spacing="5.0" HBox.hgrow="SOMETIMES" maxWidth="550.0" prefWidth="450.0" minWidth="300.0">
+                     <children>
+
+                        <HBox alignment="CENTER" spacing="18.0">
+                           <children>
+                              <Button onAction="#onShuffleClick" styleClass="control-btn" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-cursor: hand;">
+                                 <graphic><FontIcon fx:id="shuffleIcon" iconLiteral="mdi-shuffle" iconSize="23" styleClass="icon-gray" /></graphic>
+                              </Button>
+
+                              <Button fx:id="prevBtn" onAction="#onPreviousClick" style="-fx-background-color: transparent; -fx-cursor: hand;">
+                                 <graphic><FontIcon iconLiteral="mdi-skip-previous" iconSize="33" styleClass="icon-light" /></graphic>
+                              </Button>
+
+                              <Button fx:id="mainPlayBtn" onAction="#onPlayClick" style="-fx-background-color: transparent; -fx-cursor: hand;">
+                                 <graphic><FontIcon fx:id="playIcon" iconLiteral="mdi-play-circle" iconSize="48" styleClass="icon-light" /></graphic>
+                              </Button>
+
+                              <Button fx:id="nextBtn" onAction="#onNextClick" style="-fx-background-color: transparent; -fx-cursor: hand;">
+                                 <graphic><FontIcon iconLiteral="mdi-skip-next" iconSize="33" styleClass="icon-light" /></graphic>
+                              </Button>
+
+                              <Button onAction="#onRepeatClick" styleClass="control-btn" style="-fx-background-color: transparent;">
+                                 <graphic>
+                                    <FontIcon fx:id="repeatIcon" iconLiteral="mdi-repeat" iconSize="22" styleClass="icon-gray" />
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </HBox>
+
+                        <HBox alignment="CENTER" spacing="12.0" maxWidth="Infinity">
+                           <children>
+                              <Label fx:id="currentTimeLabel" minWidth="35.0" text="0:00" style="-fx-text-fill: -text-gray; -fx-font-size: 11px;" />
+                              <Slider fx:id="progressSlider" onMouseClicked="#onSliderClicked" onMousePressed="#onSliderPressed" onMouseReleased="#onSliderReleased" HBox.hgrow="ALWAYS" styleClass="progress-slider" />
+                              <Label fx:id="totalTimeLabel" minWidth="35.0" text="0:00" style="-fx-text-fill: -text-gray; -fx-font-size: 11px;" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+
+                  <HBox alignment="CENTER_RIGHT" spacing="10.0" HBox.hgrow="ALWAYS" maxWidth="Infinity" prefWidth="350.0" minWidth="200.0">
+                     <children>
+                        <FontIcon fx:id="queueIcon" iconLiteral="mdi-format-list-bulleted" iconSize="20" styleClass="icon-gray" onMouseClicked="#onQueueIconClick"/>
+                        <FontIcon fx:id="volumeIcon" iconLiteral="mdi-volume-high" iconSize="20" styleClass="icon-gray" />
+                        <Slider fx:id="volumeSlider" max="1.0" value="0.5" maxWidth="120.0" minWidth="80.0" prefWidth="100.0" styleClass="progress-slider" />
+                     </children>
+                  </HBox>
+
+               </children>
+            </HBox>
+         </bottom>
+      </BorderPane>
+
+      <StackPane fx:id="modalOverlay" visible="false" style="-fx-background-color: rgba(0,0,0,0.25);">
+         <children>
+            <VBox fx:id="modalCard" maxWidth="650" maxHeight="450" spacing="20.0"
+                  style="-fx-background-color: -tertiary-bg; -fx-background-radius: 25; -fx-border-color: -border-color; -fx-border-width: 2; -fx-border-radius: 25; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 50, 0, 0, 20);">
+               <padding>
+                  <Insets top="30.0" right="30.0" bottom="30.0" left="30.0" />
+               </padding>
+               <children>
+                  <HBox alignment="CENTER_LEFT">
+                     <children>
+                        <Label text="Add New Music" style="-fx-text-fill: -text-white; -fx-font-size: 24px; -fx-font-weight: bold;" />
+                        <Region HBox.hgrow="ALWAYS" />
+
+                        <ImageView fx:id="modalCloseBtn"
+                                   fitHeight="16.0"
+                                   pickOnBounds="true"
+                                   preserveRatio="true"
+                                   style="-fx-cursor: hand;"
+                                   onMouseClicked="#closeAddTrackModal">
+                           <image>
+                              <Image url="@Icons/close.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+                  <Separator opacity="0.1" />
+                  <HBox alignment="CENTER" spacing="15.0">
+                     <children>
+                        <Button fx:id="tabManualBtn" text="Manual Add" onAction="#switchToAddManual" style="-fx-background-color: -hover-bg; -fx-text-fill: -text-white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-padding: 8 20; -fx-cursor: hand;" />
+                        <Button fx:id="tabLinkBtn" text="Add by Link" onAction="#switchToAddLink" style="-fx-background-color: transparent; -fx-text-fill: -text-gray; -fx-background-radius: 20; -fx-padding: 8 20; -fx-cursor: hand;" />
+                     </children>
+                  </HBox>
+
+                  <StackPane VBox.vgrow="ALWAYS">
+                     <children>
+                        <VBox fx:id="manualAddForm" spacing="20">
+                           <children>
+                              <HBox spacing="20.0" alignment="CENTER_LEFT">
+                                 <StackPane fx:id="coverUploadArea" onMouseClicked="#onChooseCoverClick" prefHeight="130.0" prefWidth="130.0" minWidth="130.0" styleClass="cover-upload-area">
+                                    <children>
+                                       <VBox alignment="CENTER" spacing="5.0">
+                                          <FontIcon iconLiteral="mdi-camera" iconSize="32" styleClass="icon-gray" />
+                                          <Label text="Cover" style="-fx-text-fill: -text-gray; -fx-font-size: 12px;" />
+                                       </VBox>
+                                       <ImageView fx:id="newTrackCoverImage" fitHeight="126.0" fitWidth="126.0" pickOnBounds="true" preserveRatio="false" />
+                                    </children>
+                                 </StackPane>
+
+                                 <VBox spacing="15.0" HBox.hgrow="ALWAYS" alignment="CENTER_LEFT">
+                                    <children>
+                                       <TextField fx:id="newTrackTitleField" promptText="Track Title" styleClass="modal-input" />
+                                       <TextField fx:id="newTrackArtistField" promptText="Artist Name" styleClass="modal-input" />
+
+                                       <HBox spacing="10.0" alignment="CENTER_LEFT">
+                                          <Button mnemonicParsing="false" onAction="#onChooseAudioClick" text="Browse MP3" style="-fx-background-color: -hover-bg; -fx-text-fill: -text-white; -fx-background-radius: 6; -fx-cursor: hand; -fx-padding: 6 12;" />
+                                          <Label fx:id="selectedAudioLabel" text="No file selected" style="-fx-text-fill: -text-dark-gray; -fx-font-size: 12px;" />
+                                       </HBox>
+                                    </children>
+                                 </VBox>
+                              </HBox>
+
+                              <Region VBox.vgrow="ALWAYS" />
+
+                              <HBox alignment="CENTER_RIGHT" spacing="15.0">
+                                 <Label fx:id="manualAddErrorLabel" text="Please fill all fields and select files." style="-fx-text-fill: -error-color; -fx-font-size: 13px;" visible="false" />
+                                 <Region HBox.hgrow="ALWAYS" />
+
+                                 <Button mnemonicParsing="false" onAction="#closeAddTrackModal" text="Cancel" styleClass="modal-cancel-btn" />
+                                 <Button mnemonicParsing="false" onAction="#onSaveNewTrackClick" text="Add to Library" styleClass="primary-btn" pickOnBounds="false"></Button>
+                              </HBox>
+                           </children>
+                        </VBox>
+
+                        <VBox fx:id="linkAddForm" spacing="20" visible="false">
+                           <children>
+                              <VBox spacing="10" alignment="CENTER_LEFT" VBox.vgrow="ALWAYS">
+                                 <Label text="Paste a link to download the track:" style="-fx-text-fill: -text-gray; -fx-font-size: 14px;" />
+                                 <TextField fx:id="newTrackLinkField" promptText="Paste URL or type: Artist - Song name" styleClass="modal-input" />
+
+                                 <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                    <Label text="Supported: YouTube, SoundCloud, etc." style="-fx-text-fill: -text-dark-gray; -fx-font-size: 12px;" />
+                                    <Region HBox.hgrow="ALWAYS" />
+                                    <CheckBox fx:id="ignoreClipToggle" text="Ignore Clip (Audio only)" styleClass="custom-toggle" style="-fx-text-fill: -text-gray; -fx-font-size: 12px; -fx-cursor: hand;" selected="true"/>
+                                 </HBox>
+                              </VBox>
+
+                              <Region VBox.vgrow="ALWAYS" />
+
+                              <HBox alignment="CENTER_RIGHT" spacing="15.0">
+                                 <Button mnemonicParsing="false" onAction="#closeAddTrackModal" text="Cancel" styleClass="modal-cancel-btn" />
+                                 <Button fx:id="downloadLinkBtn" mnemonicParsing="false" onAction="#onDownloadFromLinkClick" text="Download &amp; Add" styleClass="primary-btn" pickOnBounds="false" />
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </StackPane>
+               </children>
+            </VBox>
+         </children>
+      </StackPane>
+
+      <StackPane fx:id="profileModalOverlay" visible="false" style="-fx-background-color: rgba(0,0,0,0.25);">
+         <children>
+            <VBox fx:id="profileModalCard" maxWidth="400" maxHeight="280" spacing="20.0"
+                  style="-fx-background-color: -tertiary-bg; -fx-background-radius: 25; -fx-border-color: -border-color; -fx-border-width: 2; -fx-border-radius: 25; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 50, 0, 0, 20);">
+               <padding>
+                  <Insets top="30.0" right="30.0" bottom="30.0" left="30.0" />
+               </padding>
+               <children>
+                  <HBox alignment="CENTER_LEFT">
+                     <children>
+                        <Label text="Create New Profile" style="-fx-text-fill: -text-white; -fx-font-size: 20px; -fx-font-weight: bold;" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <ImageView fx:id="profileModalCloseBtn"
+                                   fitHeight="16.0"
+                                   pickOnBounds="true"
+                                   preserveRatio="true"
+                                   style="-fx-cursor: hand;"
+                                   onMouseClicked="#closeProfileModal">
+                           <image>
+                              <Image url="@Icons/close.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+                  <Separator opacity="0.1" />
+
+                  <VBox spacing="10">
+                     <children>
+                        <Label text="Profile Name" style="-fx-text-fill: -text-gray; -fx-font-size: 14px;"/>
+                        <TextField fx:id="newProfileNameField" promptText="Enter profile name..."
+                                   style="-fx-background-color: -sec-bg; -fx-text-fill: -text-white; -fx-prompt-text-fill: -text-dark-gray; -fx-font-size: 14px; -fx-padding: 10; -fx-background-radius: 8; -fx-border-color: -border-color; -fx-border-radius: 8;" />
+                     </children>
+                  </VBox>
+
+                  <Region VBox.vgrow="ALWAYS" />
+
+                  <HBox alignment="CENTER_RIGHT" spacing="15.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#closeProfileModal" text="Cancel"
+                                styleClass="modal-cancel-btn"/>
+                        <Button mnemonicParsing="false" onAction="#saveNewProfile" text="Create Profile" styleClass="primary-btn" pickOnBounds="false"></Button>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </StackPane>
+      <StackPane fx:id="playlistModalOverlay" visible="false" style="-fx-background-color: rgba(0,0,0,0.25);">
+         <children>
+            <VBox fx:id="playlistModalCard" maxWidth="420" maxHeight="320" spacing="15.0"
+                  style="-fx-background-color: -tertiary-bg; -fx-background-radius: 25; -fx-border-color: -border-color; -fx-border-width: 2; -fx-border-radius: 25; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 50, 0, 0, 20);">
+               <padding>
+                  <Insets top="25.0" right="30.0" bottom="20.0" left="30.0" />
+               </padding>
+               <children>
+                  <HBox alignment="CENTER_LEFT">
+                     <children>
+                        <Label fx:id="playlistModalTitle" text="New Playlist" style="-fx-text-fill: -text-white; -fx-font-size: 20px; -fx-font-weight: bold;" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <ImageView fx:id="playlistModalCloseBtn" fitHeight="16.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;" onMouseClicked="#closePlaylistModal">
+                           <image><Image url="@Icons/close.png" /></image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+                  <Separator opacity="0.1" />
+
+                  <HBox fx:id="playlistTabHeader" alignment="CENTER" spacing="15.0">
+                     <children>
+                        <Button fx:id="tabPlaylistManualBtn" text="Create Empty" onAction="#switchToPlaylistManual" style="-fx-background-color: -hover-bg; -fx-text-fill: -text-white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-padding: 8 20; -fx-cursor: hand;" />
+                        <Button fx:id="tabPlaylistLinkBtn" text="Import via Link" onAction="#switchToPlaylistLink" style="-fx-background-color: transparent; -fx-text-fill: -text-gray; -fx-background-radius: 20; -fx-padding: 8 20; -fx-cursor: hand;" />
+                     </children>
+                  </HBox>
+
+                  <StackPane VBox.vgrow="ALWAYS">
+                     <children>
+                        <VBox fx:id="playlistManualForm" spacing="20">
+                           <children>
+                              <HBox spacing="20.0" alignment="CENTER_LEFT">
+                                 <children>
+                                    <StackPane fx:id="playlistCoverArea" onMouseClicked="#onChoosePlaylistCoverClick" prefHeight="140.0" prefWidth="140.0" minWidth="140.0" style="-fx-background-color: -sec-bg; -fx-background-radius: 15; -fx-border-color: -border-color; -fx-border-radius: 15; -fx-border-style: dashed; -fx-cursor: hand;">
+                                       <children>
+                                          <VBox alignment="CENTER" spacing="5.0">
+                                             <FontIcon iconLiteral="mdi-camera" iconSize="28" styleClass="icon-gray" />
+                                             <Label text="Cover" style="-fx-text-fill: -text-gray; -fx-font-size: 11px;" />
+                                          </VBox>
+                                          <ImageView fx:id="newPlaylistCoverImage" pickOnBounds="true" preserveRatio="false" />
+                                       </children>
+                                    </StackPane>
+
+                                    <VBox spacing="4.0" HBox.hgrow="ALWAYS" alignment="CENTER_LEFT">
+                                       <children>
+                                          <Label text="Playlist Name" style="-fx-text-fill: -text-gray; -fx-font-size: 13px;">
+                                             <padding><Insets top="10.0"/></padding>
+                                          </Label>
+                                          <TextField fx:id="newPlaylistNameField" promptText="E.g. Gym Vibes..." styleClass="modal-input" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                              <Region VBox.vgrow="ALWAYS" />
+                              <HBox alignment="CENTER_RIGHT" spacing="15.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#closePlaylistModal" text="Cancel" styleClass="modal-cancel-btn"/>
+                                    <Button fx:id="savePlaylistBtn" mnemonicParsing="false" onAction="#saveNewPlaylist" text="Create Playlist" styleClass="primary-btn" pickOnBounds="false" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+
+                        <VBox fx:id="playlistLinkForm" spacing="20" visible="false">
+                           <children>
+                              <VBox spacing="10" alignment="CENTER_LEFT" VBox.vgrow="ALWAYS">
+                                 <Label text="Paste a link to a YouTube or Spotify Playlist:" style="-fx-text-fill: -text-gray; -fx-font-size: 14px;" />
+                                 <TextField fx:id="importPlaylistLinkField"
+                                            promptText="YouTube and SoundCloud playlists only (Spotify coming soon)" styleClass="modal-input" />
+                                 <Label fx:id="importProgressLabel" text="Tracks will be added to your library automatically." style="-fx-text-fill: -accent-purple; -fx-font-size: 12px;" />
+                              </VBox>
+                              <Region VBox.vgrow="ALWAYS" />
+                              <HBox alignment="CENTER_RIGHT" spacing="15.0">
+                                 <Button mnemonicParsing="false" onAction="#closePlaylistModal" text="Cancel" styleClass="modal-cancel-btn" />
+                                 <Button fx:id="importPlaylistBtn" mnemonicParsing="false" onAction="#onImportPlaylistClick" text="Import Playlist" styleClass="primary-btn" pickOnBounds="false" />
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </StackPane>
+               </children>
+            </VBox>
+         </children>
+      </StackPane>
+      <StackPane fx:id="editTrackModalOverlay" visible="false" style="-fx-background-color: rgba(0,0,0,0.25);">
+         <children>
+            <VBox fx:id="editTrackModalCard" maxWidth="500" maxHeight="400" spacing="20.0"
+                  style="-fx-background-color: -tertiary-bg; -fx-background-radius: 25; -fx-border-color: -border-color; -fx-border-width: 2; -fx-border-radius: 25; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 50, 0, 0, 20);">
+               <padding>
+                  <Insets top="30.0" right="30.0" bottom="30.0" left="30.0" />
+               </padding>
+               <children>
+                  <HBox alignment="CENTER_LEFT">
+                     <children>
+                        <Label text="Edit Song Info" style="-fx-text-fill: -text-white; -fx-font-size: 20px; -fx-font-weight: bold;" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <ImageView fitHeight="16.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;" onMouseClicked="#closeEditTrackModal">
+                           <image><Image url="@Icons/close.png" /></image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+                  <Separator opacity="0.1" />
+
+                  <HBox spacing="20.0" alignment="CENTER_LEFT">
+                     <children>
+                        <StackPane onMouseClicked="#onChooseEditCoverClick" prefHeight="130.0" prefWidth="130.0" minWidth="130.0" styleClass="cover-upload-area" style="-fx-cursor: hand;">
+                           <children>
+                              <VBox alignment="CENTER" spacing="5.0">
+                                 <FontIcon iconLiteral="mdi-camera" iconSize="32" styleClass="icon-gray" />
+                                 <Label text="Change" style="-fx-text-fill: -text-gray; -fx-font-size: 12px;" />
+                              </VBox>
+                              <ImageView fx:id="editTrackCoverImage" fitHeight="126.0" fitWidth="126.0" pickOnBounds="true" preserveRatio="false" />
+                           </children>
+                        </StackPane>
+
+                        <VBox spacing="15.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <VBox spacing="5">
+                                 <Label text="Track Title" style="-fx-text-fill: -text-gray; -fx-font-size: 12px;"/>
+                                 <TextField fx:id="editTrackTitleField" promptText="Title" styleClass="modal-input" />
+                              </VBox>
+                              <VBox spacing="5">
+                                 <Label text="Artist Name" style="-fx-text-fill: -text-gray; -fx-font-size: 12px;"/>
+                                 <TextField fx:id="editTrackArtistField" promptText="Artist" styleClass="modal-input" />
+                              </VBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+
+                  <Region VBox.vgrow="ALWAYS" />
+
+                  <HBox alignment="CENTER_RIGHT" spacing="15.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#closeEditTrackModal" text="Cancel" styleClass="modal-cancel-btn" />
+                        <Button mnemonicParsing="false" onAction="#onSaveEditedTrackClick" text="Save Changes" styleClass="primary-btn" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </StackPane>
+   </children>
+   <StackPane fx:id="settingsModalOverlay" visible="false" style="-fx-background-color: rgba(10, 10, 15, 0.3);">
+      <children>
+         <VBox fx:id="settingsModalCard" alignment="TOP_CENTER" maxHeight="370.0" maxWidth="350.0" spacing="20.0" style="-fx-background-color: -sec-bg; -fx-background-radius: 20; -fx-border-color: -border-color; -fx-border-radius: 20; -fx-padding: 25;">
+            <effect><DropShadow color="#00000088" radius="20" offsetY="10" /></effect>
+            <children>
+               <HBox alignment="CENTER_LEFT">
+                  <Label text="Settings" style="-fx-text-fill: -text-white; -fx-font-size: 20px; -fx-font-weight: bold;" />
+                  <Region HBox.hgrow="ALWAYS" />
+                  <ImageView fx:id="settingsModalCloseBtn" fitHeight="16.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;" onMouseClicked="#closeSettingsModal">
+                     <image><Image url="@Icons/close.png" /></image>
+                     <effect><ColorAdjust brightness="1.0" /></effect>
+                  </ImageView>
+               </HBox>
+
+               <HBox alignment="CENTER_LEFT">
+                  <VBox spacing="3.0">
+                     <Label text="UI Animations" style="-fx-text-fill: -text-white; -fx-font-size: 14px; -fx-font-weight: bold;" />
+                     <Label text="Pulsing cover, transitions" style="-fx-text-fill: -text-dark-gray; -fx-font-size: 11px;" />
+                  </VBox>
+                  <Region HBox.hgrow="ALWAYS" />
+                  <CheckBox fx:id="animationsToggle" styleClass="custom-toggle" />
+               </HBox>
+
+               <HBox alignment="CENTER_LEFT">
+                  <VBox spacing="3.0">
+                     <Label text="Auto-Play Next" style="-fx-text-fill: -text-white; -fx-font-size: 14px; -fx-font-weight: bold;" />
+                     <Label text="Play next track automatically" style="-fx-text-fill: -text-dark-gray; -fx-font-size: 11px;" />
+                  </VBox>
+                  <Region HBox.hgrow="ALWAYS" />
+                  <CheckBox fx:id="autoPlayToggle" styleClass="custom-toggle" />
+               </HBox>
+
+               <HBox alignment="CENTER_LEFT">
+                  <VBox spacing="3.0">
+                     <Label text="Track Size" style="-fx-text-fill: -text-white; -fx-font-size: 14px; -fx-font-weight: bold;" />
+                     <Label text="Row height in library" style="-fx-text-fill: -text-dark-gray; -fx-font-size: 11px;" />
+                  </VBox>
+                  <Region HBox.hgrow="ALWAYS" />
+                  <ComboBox fx:id="trackSizeCombo" prefWidth="110.0" styleClass="custom-combo" />
+               </HBox>
+
+               <HBox alignment="CENTER_LEFT">
+                  <VBox spacing="3.0">
+                     <Label text="Start Screen" style="-fx-text-fill: -text-white; -fx-font-size: 14px; -fx-font-weight: bold;" />
+                     <Label text="Default page on launch" style="-fx-text-fill: -text-dark-gray; -fx-font-size: 11px;" />
+                  </VBox>
+                  <Region HBox.hgrow="ALWAYS" />
+                  <ComboBox fx:id="startScreenCombo" prefWidth="100.0" styleClass="custom-combo" />
+               </HBox>
+
+               <HBox alignment="CENTER_LEFT">
+                  <VBox spacing="3.0">
+                     <Label text="Dark Mode" style="-fx-text-fill: -text-white; -fx-font-size: 14px; -fx-font-weight: bold;" />
+                     <Label text="Toggle dark and light appearance" style="-fx-text-fill: -text-dark-gray; -fx-font-size: 11px;" />
+                  </VBox>
+                  <Region HBox.hgrow="ALWAYS" />
+                  <StackPane fx:id="darkModeToggle" />
+               </HBox>
+
+               <HBox alignment="CENTER_LEFT">
+                  <VBox spacing="3.0" VBox.vgrow="ALWAYS">
+                     <Label text="Accent Color" style="-fx-text-fill: -text-white; -fx-font-size: 14px; -fx-font-weight: bold;" />
+                     <Label text="Choose your mood" style="-fx-text-fill: -text-dark-gray; -fx-font-size: 11px;" />
+                  </VBox>
+                  <Region HBox.hgrow="ALWAYS" />
+                  <ComboBox fx:id="themeCombo" prefWidth="100.0" styleClass="custom-combo" />
+               </HBox>
+
+               <Region VBox.vgrow="ALWAYS" />
+
+               <HBox alignment="CENTER_RIGHT" spacing="15.0">
+                  <children>
+                     <Button mnemonicParsing="false" onAction="#closeSettingsModal" text="Cancel" styleClass="modal-cancel-btn"/>
+                     <Button mnemonicParsing="false" onAction="#saveSettings" text="Save Settings" styleClass="primary-btn" pickOnBounds="false"></Button>
+                  </children>
+               </HBox>
+            </children>
+         </VBox>
+      </children>
+   </StackPane>
+   <StackPane fx:id="loadingOverlay" style="-fx-background-color: -sec-bg;">
+      <children>
+         <VBox alignment="CENTER" spacing="10.0">
+            <children>
+               <Label text="SCRILL" style="-fx-text-fill: -text-white; -fx-font-size: 46px; -fx-font-weight: bold; -fx-letter-spacing: 8px;" />
+               <Label text="Loading your library..." style="-fx-text-fill: -accent-purple; -fx-font-size: 14px;" />
+            </children>
+         </VBox>
+      </children>
+   </StackPane>
+   <StackPane fx:id="onboardingOverlay" visible="false" style="-fx-background-color: rgba(0,0,0,0.85);">
+      <VBox alignment="CENTER" spacing="25.0" maxWidth="450.0" maxHeight="400.0"
+            style="-fx-background-color: -sec-bg; -fx-background-radius: 25; -fx-border-color: -border-color; -fx-border-width: 1; -fx-border-radius: 25; -fx-padding: 40;">
+
+         <StackPane fx:id="onboardingIconBox" prefHeight="60.0" prefWidth="60.0">
+            <children>
+               <ImageView fx:id="onboardingIcon" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" smooth="true">
+                  <image>
+                     <Image url="@Icons/addP.png" />
+                  </image>
+               </ImageView>
+            </children>
+         </StackPane>
+
+         <VBox alignment="CENTER" spacing="5.0">
+            <Label text="Welcome to Music Player" style="-fx-text-fill: -text-white; -fx-font-size: 26px; -fx-font-weight: bold;" />
+            <Label text="Create your first profile to start" style="-fx-text-fill: -text-dark-gray; -fx-font-size: 14px;" />
+         </VBox>
+
+         <TextField fx:id="onboardingNameField" promptText="Enter your name..."
+                    styleClass="modal-input" style="-fx-pref-height: 45; -fx-font-size: 14px;" />
+
+         <Button text="Get Started" onAction="#handleOnboardingStart" prefWidth="200.0"
+                 styleClass="primary-btn" style="-fx-pref-height: 45; -fx-font-weight: bold; -fx-cursor: hand;" />
+      </VBox>
+   </StackPane>
+   <StackPane fx:id="deleteConfirmOverlay" visible="false" style="-fx-background-color: rgba(0,0,0,0.5);">
+      <children>
+         <VBox fx:id="deleteConfirmCard" maxWidth="400" maxHeight="200" spacing="20.0"
+               style="-fx-background-color: -tertiary-bg; -fx-background-radius: 25; -fx-border-color: -border-color; -fx-border-width: 2; -fx-border-radius: 25; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 50, 0, 0, 20);">
+            <padding>
+               <Insets top="30.0" right="30.0" bottom="30.0" left="30.0" />
+            </padding>
+            <children>
+               <Label fx:id="deleteConfirmTitle" text="Delete Profile?" style="-fx-text-fill: -text-white; -fx-font-size: 20px; -fx-font-weight: bold;" />
+
+               <Separator opacity="0.1" />
+
+               <Label text="All music, playlists, and stats in this profile will be permanently deleted. This action cannot be undone."
+                      style="-fx-text-fill: -text-gray; -fx-font-size: 14px;" wrapText="true" />
+
+               <Region VBox.vgrow="ALWAYS" />
+
+               <HBox alignment="CENTER_RIGHT" spacing="15.0">
+                  <children>
+                     <Button mnemonicParsing="false" onAction="#closeDeleteConfirmModal" text="Cancel" styleClass="modal-cancel-btn" />
+                     <Button mnemonicParsing="false" onAction="#confirmDeleteProfile" text="Delete"
+                             style="-fx-background-color: -error-color; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-padding: 8 20; -fx-cursor: hand;">
+                        <effect>
+                           <DropShadow color="#FF525288" radius="15" offsetY="3" />
+                        </effect>
+                     </Button>
+                  </children>
+               </HBox>
+            </children>
+         </VBox>
+      </children>
+   </StackPane>
+</StackPane>
+

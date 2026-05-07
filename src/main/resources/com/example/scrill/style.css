@@ -1,0 +1,1102 @@
+/* --- 1. ГЛОБАЛЬНЫЕ ЦВЕТА И ФОН --- */
+.root {
+    /* ТЕМНАЯ ТЕМА (ПО УМОЛЧАНИЮ) */
+    -main-bg: #22222E;
+    -sec-bg: #1E1E2E;
+    -tertiary-bg: #2D2D3D;
+    -hover-bg: #393A5A;
+
+    -accent-purple: #B388FF;
+    -accent-dim: rgba(179, 136, 255, 0.15);
+
+    -text-white: white;
+    -text-gray: #ADA9BA;
+    -text-dark-gray: #706F8E;
+
+    -border-color: #393A5A;
+    -error-color: #FF5252;
+
+    -row-hover: rgba(255, 255, 255, 0.05);
+    -shadow-color: rgba(0, 0, 0, 0.4);
+    -glow-color: rgba(255, 255, 255, 0.2);
+    -accent-dark: #5e35b1;
+
+    /* Цвет текста/иконки на кнопке FAB по умолчанию */
+    -fab-color: #22222E;
+}
+
+/* СВЕТЛАЯ ТЕМА (АКТИВИРУЕТСЯ ЧЕРЕЗ КОД) */
+.root.light-theme {
+    -main-bg: #F4F4F9;
+    -sec-bg: #FFFFFF;
+    -tertiary-bg: #EAEAEE;
+    -hover-bg: #D1D1D6;
+
+    -accent-purple: #7C4DFF;
+    -accent-dim: rgba(124, 77, 255, 0.25);
+
+    -text-white: #1A1A24;
+    -text-gray: #6C6B80;
+    -text-dark-gray: #8E8D9E;
+
+    -border-color: #D1D1D6;
+    -error-color: #E53935;
+
+    -row-hover: rgba(0, 0, 0, 0.05);
+    -shadow-color: rgba(0, 0, 0, 0.1);
+    -glow-color: rgba(0, 0, 0, 0.1);
+    -accent-dark: #5e35b1;
+
+    -fab-color: white;
+}
+
+/* --- ТЁМНО-КРАСНАЯ ТЕМА --- */
+.red-theme {
+    -main-bg: #1c0e0e;
+    -sec-bg: #2b1515;
+    -tertiary-bg: #3d1d1d;
+    -accent-purple: #ff4a4a;
+    -hover-bg: #522626;
+    -border-color: #522626;
+    -accent-dim: rgba(255, 74, 74, 0.15);
+    -accent-dark: #b31c1c;
+
+    -text-white: #f2e0e0;
+    -text-gray: #a39494;
+    -text-dark-gray: #5c4a4a;
+
+    -fab-color: white;
+}
+.light-red-theme {
+    -main-bg: #fffaf9;
+    -sec-bg: #ffefeb;
+    -tertiary-bg: #ffe0d6;
+    -accent-purple: #e53935;
+    -accent-dark: #b71c1c;
+    -hover-bg: #ffccbc;
+    -border-color: #ffab91;
+    -accent-dim: rgba(229, 57, 53, 0.15);
+    -hero-bg: linear-gradient(to bottom right, #e53935, #ff8a65);
+    -text-white: #3e1916;
+    -text-gray: #8d6e63;
+    -text-dark-gray: #5d4037;
+
+    -fab-color: white;
+}
+
+/* --- ТЁМНО-ЗЕЛЁНАЯ ТЕМА --- */
+.green-theme {
+    -main-bg: #0f1c12;
+    -sec-bg: #162b1a;
+    -tertiary-bg: #1f3d25;
+    -accent-purple: #2ed15d;
+    -hover-bg: #2a5231;
+    -border-color: #2a5231;
+    -accent-dim: rgba(46, 209, 93, 0.15);
+    -accent-dark: #198236;
+
+    -text-white: #e8f5e9;
+    -text-gray: #94a397;
+    -text-dark-gray: #4a5c4e;
+
+    -fab-color: white;
+}
+
+.light-green-theme {
+    -main-bg: #f8fbf8;
+    -sec-bg: #edf5ed;
+    -tertiary-bg: #e0eee0;
+    -accent-purple: #43a047;
+    -accent-dark: #1b5e20;
+    -hover-bg: #c8e6c9;
+    -border-color: #a5d6a7;
+    -accent-dim: rgba(67, 160, 71, 0.15);
+    -hero-bg: linear-gradient(to bottom right, #43a047, #a5d6a7);
+    -text-white: #1b3320;
+    -text-gray: #689f38;
+    -text-dark-gray: #33691e;
+
+    -fab-color: white;
+}
+
+/* --- КРЕМОВЫЕ ТЕМЫ --- */
+.dark-cream-theme {
+    -main-bg: #1c140e;
+    -sec-bg: #2b1f15;
+    -tertiary-bg: #3d2d1d;
+    -accent-purple: #e0a96d;
+    -hover-bg: #523c26;
+    -border-color: #523c26;
+    -accent-dim: rgba(224, 169, 109, 0.15);
+    -hero-bg: linear-gradient(to bottom right, #e0a96d, #8f5d30);
+    -text-white: #ffffff;
+    -text-gray: #bda691;
+    -text-dark-gray: #8c7a69;
+    -accent-dark: #8f5d30;
+
+    -fab-color: white;
+}
+
+.cream-theme {
+    -main-bg: #fdfbf7;
+    -sec-bg: #f4efe6;
+    -tertiary-bg: #eaddc7;
+    -accent-purple: #c28851;
+    -hover-bg: #dfcdae;
+    -border-color: #dfcdae;
+    -accent-dim: rgba(194, 136, 81, 0.15);
+    -text-white: #333333;
+    -text-gray: #7a7066;
+    -text-dark-gray: #544a40;
+    -accent-dark: #8f5d30;
+
+    -fab-color: white;
+}
+
+/* --- РОЗОВЫЕ ТЕМЫ --- */
+.pink-theme {
+    -main-bg: #1f0f15;
+    -sec-bg: #2d161e;
+    -tertiary-bg: #3d1e29;
+    -accent-purple: #ff4d94;
+    -hover-bg: #4d2635;
+    -border-color: #4d2635;
+    -accent-dim: rgba(255, 77, 148, 0.15);
+    -hero-bg: linear-gradient(to bottom right, #ff4d94, #bd155d);
+    -accent-dark: #bd155d;
+
+    -text-white: #ffffff;
+    -text-gray: #b198a1;
+    -text-dark-gray: #7d656e;
+
+    -fab-color: white;
+}
+
+.light-pink-theme {
+    -main-bg: #fff5f8;
+    -sec-bg: #ffe0eb;
+    -tertiary-bg: #ffd1e1;
+    -accent-purple: #ff4d94;
+    -hover-bg: #ffb8d1;
+    -border-color: #ffc2d8;
+    -accent-dim: rgba(255, 77, 148, 0.2);
+    -hero-bg: linear-gradient(to bottom right, #ff4d94, #f8a5c2);
+    -accent-dark: #f8a5c2;
+
+    -text-white: #4a1529;
+    -text-gray: #8a5a6c;
+    -text-dark-gray: #6e3d50;
+
+    -fab-color: white;
+}
+
+/* --- СЕВЕРНЫЕ ТЕМЫ (NORDIC) --- */
+.light-nordic {
+    -main-bg: #eceff4;
+    -sec-bg: #e5e9f0;
+    -tertiary-bg: #d8dee9;
+    -accent-purple: #5e81ac;
+    -accent-dark: #81a1c1;
+    -hover-bg: #c2cbd8;
+    -border-color: #c2cbd8;
+    -accent-dim: rgba(94, 129, 172, 0.15);
+
+    -text-white: #2e3440;
+    -text-gray: #4c566a;
+    -text-dark-gray: #818996;
+
+    -fab-color: white;
+}
+
+.nordic-frost {
+    -main-bg: #2e3440;
+    -sec-bg: #3b4252;
+    -tertiary-bg: #434c5e;
+    -accent-purple: #88c0d0;
+    -accent-dark: #5e81ac;
+    -accent-dim: rgba(136, 192, 208, 0.15);
+    -hover-bg: #4c566a;
+    -border-color: #4c566a;
+    -text-white: #eceff4;
+    -text-gray: #d8dee9;
+    -text-dark-gray: #818996;
+
+    -fab-color: white;
+}
+
+/* --- ТЕМА PENGUIN (ЧБ) --- */
+.penguin-theme {
+    -main-bg: #000000;
+    -sec-bg: #111111;
+    -tertiary-bg: #222222;
+    -accent-purple: #ffffff; /* Белая кнопка */
+    -hover-bg: #333333;
+    -border-color: #333333;
+    -accent-dim: rgba(255, 255, 255, 0.15);
+    -text-white: #ffffff;
+    -text-gray: #aaaaaa;
+    -text-dark-gray: #666666;
+    -accent-dark: #cccccc;
+
+    /* НА БЕЛОМ ФОНЕ ТЕКСТ ДОЛЖЕН БЫТЬ ЧЕРНЫМ */
+    -fab-color: black;
+}
+
+.light-penguin {
+    -main-bg: #ffffff;
+    -sec-bg: #eeeeee;
+    -tertiary-bg: #dddddd;
+    -accent-purple: #000000; /* Черная кнопка */
+    -hover-bg: #cccccc;
+    -border-color: #cccccc;
+    -accent-dim: rgba(0, 0, 0, 0.15);
+    -text-white: #000000;
+    -text-gray: #555555;
+    -text-dark-gray: #999999;
+    -accent-dark: #333333;
+
+    /* НА ЧЕРНОМ ФОНЕ ТЕКСТ ДОЛЖЕН БЫТЬ БЕЛЫМ */
+    -fab-color: white;
+}
+
+
+.penguin-theme .combo-box-popup .list-cell:selected {
+    -fx-background-color: -accent-purple; /* Остается белым */
+    -fx-text-fill: #000000 !important; /* Текст становится чёрным */
+}
+
+/* =========================================
+   ПРИМЕНЕНИЕ ЦВЕТА К КНОПКЕ
+   ========================================= */
+.fab-text {
+    /* Берем цвет из активной темы! */
+    -fx-text-fill: -fab-color;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+
+.fab-icon {
+    /* Берем цвет из активной темы! */
+    -fx-icon-color: -fab-color;
+}
+
+/* Фикс текста на акцентных кнопках (оставляем как было) */
+.penguin-theme .primary-btn { -fx-text-fill: #000000 !important; }
+.light-penguin .primary-btn { -fx-text-fill: #ffffff !important; }
+
+.penguin-theme .hero-card .label,
+.penguin-theme .hero-card .stat-title,
+.penguin-theme .hero-card .stat-value {
+    -fx-text-fill: #000000 !important;
+}
+
+/* В светлой теме главная карточка темная -> текст должен быть белым */
+.light-penguin .hero-card .label,
+.light-penguin .hero-card .stat-title,
+.light-penguin .hero-card .stat-value {
+    -fx-text-fill: #ffffff !important;
+}
+
+
+
+.main-vbox {
+    -fx-background-color: linear-gradient(to bottom right, -main-bg, -sec-bg);
+}
+
+/* --- 2. СЛАЙДЕРЫ (Progress & Volume) --- */
+.progress-slider {
+    -fx-pref-height: 16px;
+    -fx-background-color: transparent;
+    -active-color: -text-gray;
+}
+
+.progress-slider:hover {
+    -active-color: -accent-purple;
+}
+
+.progress-slider .track {
+    -fx-background-color: -text-dark-gray;
+    -fx-background-radius: 6;
+    -fx-pref-height: 6px;
+    -fx-background-insets: 0;
+}
+
+.progress-slider .thumb {
+    -fx-background-color: transparent;
+    -fx-background-radius: 12;
+    -fx-padding: 8px;
+}
+
+.progress-slider:hover .thumb {
+    -fx-background-color: -text-white;
+    -fx-scale-x: 1.2;
+    -fx-scale-y: 1.2;
+    -fx-cursor: hand;
+}
+
+/* --- 3. КНОПКИ УПРАВЛЕНИЯ --- */
+.control-btn {
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+    -fx-padding: 0;
+}
+
+.control-btn .font-icon {
+    -fx-icon-color: -text-gray;
+}
+
+.control-btn:hover {
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+    -fx-effect: dropshadow(three-pass-box, -glow-color, 10, 0, 0, 0);
+}
+
+.control-btn:hover .font-icon {
+    -fx-icon-color: -text-white;
+}
+
+.control-btn:pressed {
+    -fx-scale-x: 0.95;
+    -fx-scale-y: 0.95;
+}
+
+/* --- 4. ОБЛОЖКА И ГРОМКОСТЬ --- */
+#coverImage {
+    -fx-effect: dropshadow(three-pass-box, -shadow-color, 15, 0, 0, 5);
+}
+
+#coverImage:hover {
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+#volumeIcon {
+    -fx-cursor: hand;
+    -fx-transition: -fx-icon-color 0.2s;
+}
+
+.volume-muted {
+    -fx-icon-color: -text-dark-gray !important;
+}
+
+#volumeIcon:hover {
+    -fx-icon-color: -text-white !important;
+    -fx-effect: dropshadow(three-pass-box, -glow-color, 10, 0, 0, 0);
+}
+
+/* --- 5. ТАБЛИЦА (TRACK LIST) - ЕДИНЫЙ РАЗМЕР ВЫДЕЛЕНИЯ --- */
+
+.track-table {
+    -fx-background-color: -main-bg;
+    -fx-table-header-border-color: transparent;
+    -fx-table-cell-border-color: transparent;
+    -fx-border-color: transparent;
+    -fx-selection-bar: transparent !important;
+}
+
+.track-table .virtual-flow, .track-table .placeholder {
+    -fx-background-color: -main-bg;
+}
+
+/* Заголовки */
+.track-table .column-header-background, .track-table .column-header {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+.track-table .column-header .label {
+    -fx-text-fill: -text-dark-gray;
+    -fx-font-weight: bold;
+}
+
+/* Ячейки */
+.track-table .table-cell {
+    -fx-padding: 0 !important;
+    -fx-background-insets: 0 !important;
+    -fx-alignment: CENTER-LEFT;
+    -fx-text-fill: -text-white;
+    -fx-border-color: transparent !important;
+}
+
+.track-table .table-cell:focused {
+    -fx-background-color: transparent !important;
+}
+
+/* --- ОБЩАЯ ЛОГИКА СТРОК (ЕДИНЫЙ РАЗМЕР) --- */
+
+.table-row-cell {
+    -fx-background-color: transparent;
+    -fx-cell-size: 65px !important;
+    -fx-background-insets: 0 !important;
+    -fx-border-color: transparent !important;
+}
+
+/* ЗДЕСЬ МЫ ЗАДАЕМ ОБЩИЕ ПАРАМЕТРЫ ДЛЯ ВСЕХ ВИДОВ ВЫДЕЛЕНИЯ
+   -fx-background-insets: 0 5 0 5 делает плашку широкой, почти во всю таблицу
+*/
+.table-row-cell:hover,
+.table-row-cell:selected,
+.track-table:focused .table-row-cell:selected,
+.table-row-cell.playing-row {
+    -fx-background-radius: 10px !important;
+    -fx-background-insets: 2 5 2 5 !important; /* Строго единый размер для всех */
+}
+
+/* 1. ЭФФЕКТ НАВЕДЕНИЯ (Мягкий блик) */
+.table-row-cell:hover {
+    -fx-background-color: rgba(150, 150, 150, 0.08) !important;
+}
+
+/* 2. ЭФФЕКТ ВЫДЕЛЕНИЯ (Мягкая плашка темы) */
+.table-row-cell:selected,
+.track-table:focused .table-row-cell:selected {
+    -fx-background-color: -hover-bg !important;
+}
+
+/* 3. ИГРАЮЩИЙ ТРЕК (Акцентный фон + Полоска) */
+.table-row-cell.playing {
+    -fx-background-color: -accent-dim !important;
+}
+
+.table-row-cell.playing-row {
+    -fx-background-color: -accent-dim !important;
+}
+
+
+/* Приоритет цвета текста */
+.track-table .table-row-cell:selected .text,
+.track-table .table-row-cell:selected .label,
+.track-table .table-row-cell.playing .text,
+.track-table .table-row-cell.playing .label {
+    -fx-text-fill: -text-white !important;
+    -fx-fill: -text-white !important;
+}
+
+/* Убираем пустые строки */
+.table-row-cell:empty, .table-row-cell:empty .table-cell {
+    -fx-background-color: transparent !important;
+}
+
+
+/* --- 6. ПОЛЕ ПОИСКА --- */
+.search-field {
+    -fx-background-color: -tertiary-bg;
+    -fx-background-radius: 20;
+    -fx-text-fill: -text-white;
+    -fx-padding: 8 15;
+    -fx-prompt-text-fill: -text-dark-gray;
+    -fx-border-color: transparent;
+}
+
+.search-field:focused {
+    -fx-border-color: -accent-purple;
+    -fx-border-radius: 20;
+}
+
+/* --- 7. MODAL WINDOWS --- */
+.modal-input {
+    -fx-background-color: -sec-bg;
+    -fx-text-fill: -text-white;
+    -fx-prompt-text-fill: -text-dark-gray;
+    -fx-font-size: 14px;
+    -fx-background-radius: 8;
+    -fx-padding: 10 12;
+    -fx-border-color: -border-color;
+    -fx-border-radius: 8;
+    -fx-border-width: 1;
+    -fx-transition: -fx-border-color 0.2s;
+}
+
+.modal-input:focused {
+    -fx-border-color: -accent-purple;
+}
+
+.cover-upload-area {
+    -fx-background-color: -sec-bg;
+    -fx-background-radius: 15;
+    -fx-border-color: -border-color;
+    -fx-border-radius: 15;
+    -fx-border-width: 2;
+    -fx-cursor: hand;
+    -fx-transition: -fx-border-color 0.2s, -fx-background-color 0.2s;
+}
+
+.cover-upload-area:hover {
+    -fx-border-color: -accent-purple;
+    -fx-background-color: -tertiary-bg;
+}
+
+.modal-cancel-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: -text-gray;
+    -fx-cursor: hand;
+    -fx-font-size: 14px;
+}
+
+.modal-cancel-btn:hover {
+    -fx-text-fill: -text-white;
+    -fx-underline: true;
+}
+
+.input-error {
+    -fx-border-color: -error-color !important;
+}
+
+/* --- 8. СКРОЛЛБАРЫ И РАЗДЕЛИТЕЛИ --- */
+.table-view .filler,
+.table-view .column-header-background .filler,
+.table-view .corner {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar:vertical {
+    -fx-pref-width: 6px;
+}
+
+.scroll-bar .track,
+.scroll-bar .track-background {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: -hover-bg;
+    -fx-background-radius: 10px;
+}
+
+.scroll-bar .thumb:hover {
+    -fx-background-color: -accent-purple;
+}
+
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button,
+.scroll-bar .increment-arrow,
+.scroll-bar .decrement-arrow {
+    -fx-background-color: transparent;
+    -fx-shape: " ";
+    -fx-padding: 0;
+}
+
+.custom-split-pane {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+.custom-split-pane > .split-pane-divider {
+    -fx-background-color: transparent;
+    -fx-padding: 0 3 0 3;
+}
+.custom-split-pane > .split-pane-divider:hover {
+    -fx-background-color: -hover-bg;
+}
+
+/* --- 9. КНОПКИ В SIDEBAR --- */
+.sidebar-btn {
+    -fx-padding: 8 10;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+}
+.sidebar-btn:hover {
+    -fx-background-color: -tertiary-bg;
+}
+
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
+.add-playlist-btn {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -text-gray;
+    -fx-cursor: hand;
+    -fx-padding: -5 0 0 0;
+    -fx-transition: all 0.2s ease;
+}
+
+.add-playlist-btn:hover {
+    -fx-text-fill: -accent-purple;
+    -fx-effect: dropshadow(three-pass-box, -accent-purple, 12, 0.6, 0, 0);
+    -fx-scale-x: 1.15;
+    -fx-scale-y: 1.15;
+}
+
+.add-playlist-btn:pressed {
+    -fx-text-fill: -text-white;
+    -fx-scale-x: 0.9;
+    -fx-scale-y: 0.9;
+    -fx-effect: none;
+}
+
+/* --- 10. КАРТОЧКИ И КОНТЕКСТНОЕ МЕНЮ --- */
+
+
+.stat-title {
+    -fx-text-fill: -text-dark-gray;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-padding: 0 0 5 0;
+}
+
+.stat-value {
+    -fx-text-fill: -accent-purple;
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+}
+
+.recent-card {
+    -fx-background-color: transparent;
+    -fx-background-radius: 12;
+    -fx-padding: 10;
+    -fx-cursor: hand;
+}
+
+.recent-card:hover {
+    -fx-background-color: -tertiary-bg;
+}
+
+/* --- КОНТЕКСТНОЕ МЕНЮ --- */
+.context-menu {
+    -fx-background-color: -sec-bg;
+    -fx-background-radius: 16;
+    -fx-border-color: -border-color;
+    -fx-border-radius: 16;
+    -fx-border-width: 1;
+    -fx-padding: 6;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.55), 30, 0, 0, 10);
+}
+
+.context-menu .menu-item {
+    -fx-padding: 10 18 10 14;
+    -fx-background-radius: 10;
+    -fx-cursor: hand;
+}
+
+.context-menu .menu-item .label {
+    -fx-text-fill: -text-white;
+    -fx-font-size: 13px;
+}
+
+.context-menu .menu-item:focused,
+.context-menu .menu-item:hover {
+    -fx-background-color: -hover-bg;
+    -fx-background-radius: 10;
+}
+
+.context-menu .menu-item:focused .label,
+.context-menu .menu-item:hover .label {
+    -fx-text-fill: -text-white;
+}
+
+.context-menu .menu-item:focused .ikonli-font-icon,
+.context-menu .menu-item:hover .ikonli-font-icon {
+    -fx-icon-color: -text-white;
+}
+
+/* Delete пункт */
+.context-menu .delete-menu-item .label {
+    -fx-text-fill: -error-color;
+}
+
+.context-menu .delete-menu-item:focused,
+.context-menu .delete-menu-item:hover {
+    -fx-background-color: rgba(255, 82, 82, 0.12);
+    -fx-background-radius: 10;
+}
+
+.context-menu .delete-menu-item:focused .label,
+.context-menu .delete-menu-item:hover .label {
+    -fx-text-fill: -error-color;
+}
+
+.context-menu .delete-menu-item:focused .ikonli-font-icon,
+.context-menu .delete-menu-item:hover .ikonli-font-icon {
+    -fx-icon-color: -error-color;
+    -fx-effect: none;
+}
+
+/* Разделитель */
+.context-menu .separator {
+    -fx-padding: 3 0;
+}
+
+.context-menu .separator .line {
+    -fx-border-color: -border-color;
+    -fx-border-width: 1 0 0 0;
+    -fx-opacity: 0.5;
+}
+
+/* Иконки по умолчанию серые */
+.context-menu .menu-item .ikonli-font-icon {
+    -fx-icon-color: -text-gray;
+}
+
+.track-table .table-row-cell.playing-row {
+    -fx-background-color: -accent-dim;
+    -fx-background-radius: 10;
+}
+.track-table .table-row-cell.playing-row .label {
+    -fx-text-fill: -accent-purple;
+}
+.track-table .table-row-cell.playing-row:selected {
+    -fx-background-color: rgba(179, 136, 255, 0.25);
+    -fx-background-radius: 10;
+}
+
+/* --- 11. ВЕКТОРНЫЕ ИКОНКИ --- */
+.svg-icon {
+    -fx-cursor: hand;
+    -fx-transition: all 0.15s ease-in-out;
+}
+.back-icon, .forward-icon, .settings-icon {
+    -fx-background-color: -text-white;
+    -fx-opacity: 0.85;
+}
+.svg-icon:disabled {
+    -fx-background-color: -text-dark-gray;
+    -fx-opacity: 0.5;
+    -fx-cursor: default;
+}
+.svg-icon:hover {
+    -fx-background-color: -text-white;
+    -fx-opacity: 1;
+}
+.settings-icon {
+    -fx-shape: "M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49-.12-.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z";
+    -fx-opacity: 0.6;
+}
+.back-icon { -fx-shape: "M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"; }
+.forward-icon { -fx-shape: "M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"; }
+
+/* --- 12. НАСТРОЙКИ (TOGGLES И COMBO) --- */
+.custom-toggle {
+    -fx-text-fill: transparent;
+    -fx-cursor: hand;
+}
+.custom-toggle .box {
+    -fx-background-color: -tertiary-bg;
+    -fx-background-radius: 8;
+    -fx-border-color: -border-color;
+    -fx-border-radius: 8;
+    -fx-padding: 4;
+}
+.custom-toggle:selected .box {
+    -fx-background-color: -accent-purple;
+    -fx-border-color: -accent-purple;
+}
+.custom-toggle .mark {
+    -fx-background-color: -sec-bg;
+}
+.custom-combo {
+    -fx-background-color: -tertiary-bg;
+    -fx-border-color: -border-color;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+}
+.custom-combo .list-cell {
+    -fx-text-fill: -text-white;
+    -fx-background-color: -tertiary-bg;
+    -fx-padding: 5 10;
+}
+.custom-combo .arrow-button .arrow {
+    -fx-background-color: -text-dark-gray;
+}
+.custom-combo .list-view {
+    -fx-background-color: -tertiary-bg;
+    -fx-border-color: -border-color;
+}
+.custom-combo .list-cell:hover {
+    -fx-background-color: -hover-bg;
+}
+
+.icon-light { -fx-icon-color: -text-white; }
+.icon-gray { -fx-icon-color: -text-gray; }
+.icon-dark { -fx-icon-color: -text-dark-gray; }
+.icon-accent { -fx-icon-color: -accent-purple; }
+
+/* --- 13. МЕНЮ ПРОФИЛЕЙ --- */
+.profile-label-active {
+    -fx-font-weight: bold;
+    -fx-text-fill: -text-white;
+}
+
+.profile-label-inactive {
+    -fx-text-fill: -text-gray;
+}
+
+
+/* --- 14. ДИНАМИЧЕСКИЕ КАРТОЧКИ (HOME) --- */
+.hero-card {
+    -fx-background-color: linear-gradient(to bottom right, -accent-purple, -accent-dark);
+    -fx-background-radius: 20;
+    -fx-effect: dropshadow(three-pass-box, -accent-dim, 20, 0, 0, 10);
+}
+
+.artist-card {
+    -fx-background-color: -tertiary-bg;
+    -fx-background-radius: 65;
+    -fx-cursor: hand;
+}
+
+.artist-card:hover {
+    -fx-background-color: -hover-bg;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 15, 0, 0, 0);
+}
+
+.recent-row {
+    -fx-background-color: -tertiary-bg;
+    -fx-background-radius: 12;
+    -fx-cursor: hand;
+    -fx-padding: 8 15 8 10;
+}
+
+.recent-row:hover {
+    -fx-background-color: -hover-bg;
+}
+
+
+/* --- АНИМАЦИИ ДЛЯ ДОМАШНЕГО ЭКРАНА --- */
+
+/* Карточки статистики: плавное увеличение и смена цвета */
+.stat-card {
+    -fx-transition: all 0.3s ease;
+}
+
+.stat-card {
+    -fx-background-color: -tertiary-bg;
+    -fx-background-radius: 15;
+    -fx-border-color: -border-color;
+    -fx-border-radius: 15;
+    -fx-padding: 20;
+    -fx-alignment: center-left;
+}
+
+.stat-card:hover {
+    /* В CSS оставляем только смену фона при наведении */
+    -fx-background-color: -hover-bg;
+    -fx-cursor: hand;
+}
+
+.hero-card {
+    -fx-background-color: linear-gradient(to bottom right, -accent-purple, -accent-dark);
+    -fx-background-radius: 20;
+    /* Базовая, спокойная тень */
+    -fx-effect: dropshadow(three-pass-box, -shadow-color, 15, 0, 0, 5);
+}
+
+/* Строки "Недавно добавленных" */
+.recent-row {
+    -fx-transition: all 0.2s ease;
+}
+
+
+
+
+/* --- ГЛАВНЫЕ АКЦЕНТНЫЕ КНОПКИ (Модальные окна) --- */
+.primary-btn {
+    -fx-background-color: -accent-purple;
+    -fx-text-fill: -text-white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 20;
+    -fx-cursor: hand;
+    -fx-padding: 8 20;
+    -fx-font-size: 14px;
+    /* Тень теперь привязана к переменной -accent-dim! */
+    -fx-effect: dropshadow(three-pass-box, -accent-dim, 20, 0, 0, 5);
+    -fx-transition: all 0.2s ease;
+}
+
+.primary-btn:hover {
+    -fx-background-color: -accent-dark;
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+    -fx-effect: dropshadow(three-pass-box, -accent-dim, 25, 0.4, 0, 8);
+}
+
+.primary-btn:pressed {
+    -fx-scale-x: 0.95;
+    -fx-scale-y: 0.95;
+}
+
+.column-header#infoCol {
+    -fx-alignment: center-left;
+}
+
+.column-header#infoCol .label {
+    -fx-alignment: center-left;
+    -fx-padding: 0 0 0 13;
+}
+
+
+/* ========================================== */
+/* СТИЛИ ДЛЯ ГРАФИКА АКТИВНОСТИ (ACTIVITY CHART) */
+/* ========================================== */
+
+.chart {
+    -fx-padding: 10 0 10 0;
+}
+
+/* Убираем фон у графика */
+.chart-plot-background {
+    -fx-background-color: transparent;
+}
+
+/* Цвет самой линии графика */
+.default-color0.chart-series-area-line {
+    -fx-stroke: -text-white;
+    -fx-stroke-width: 2px;
+}
+
+/* Заливка под линией (используем акцентный прозрачный цвет темы) */
+.default-color0.chart-series-area-fill {
+    -fx-fill: -accent-dim;
+}
+
+/* Точки на графике */
+.default-color0.chart-area-symbol {
+    -fx-background-color: -text-white, -accent-purple;
+    -fx-background-insets: 0, 2;
+    -fx-background-radius: 5px;
+    -fx-padding: 4px;
+}
+
+/* Анимация при наведении на точку графика */
+.default-color0.chart-area-symbol:hover {
+    -fx-scale-x: 1.5;
+    -fx-scale-y: 1.5;
+    -fx-cursor: hand;
+}
+
+/* Стилизация осей графика (текст и черточки) */
+.chart .axis {
+    /* Вот эта магия красит надписи дней недели (и цифры, если они есть) */
+    -fx-tick-label-fill: -text-white;
+    -fx-font-weight: bold;
+    -fx-font-size: 11px;
+}
+
+/* Прячем маленькие засечки на осях, чтобы было минималистично */
+.chart .axis .axis-tick-mark,
+.chart .axis .axis-minor-tick-mark {
+    -fx-stroke: transparent;
+}
+.chart-bottom .axis .tick-label {
+    /* ИСПРАВЛЕНО: для элементов Text на графике используется -fx-fill */
+    -fx-fill: -text-white;
+    -fx-opacity: 0.8;
+    -fx-font-weight: bold;
+    -fx-font-size: 10px;
+}
+
+
+/* --- Карточки плейлистов на дашборде --- */
+.playlist-card {
+    -fx-padding: 15;
+    -fx-background-radius: 20;
+}
+.playlist-card:hover {
+    -fx-effect: dropshadow(three-pass-box, -accent-dim, 20, 0.2, 0, 8);
+}
+
+
+/* --- Карточка "Создать Плейлист" на главной --- */
+.add-playlist-icon-box {
+    -fx-border-color: -text-dark-gray;
+    -fx-border-width: 2;
+    -fx-border-style: dashed;
+    -fx-border-radius: 15;
+    -fx-background-radius: 15;
+    -fx-background-color: transparent;
+}
+
+/* При наведении на карточку красим рамку и иконку плюса в акцентный цвет */
+.add-playlist-card:hover .add-playlist-icon-box {
+    -fx-border-color: -accent-purple;
+    -fx-background-color: -tertiary-bg; /* Чуть подсвечиваем фон внутри рамки */
+}
+
+.add-playlist-card:hover .ikonli-font-icon {
+    -fx-icon-color: -accent-purple;
+}
+
+
+/* Базовый стиль комбобокса */
+.custom-combo {
+    -fx-background-color: -tertiary-bg;
+    -fx-background-radius: 8;
+    -fx-border-color: -border-color;
+    -fx-border-radius: 8;
+    -fx-padding: 2 5;
+    -fx-text-fill: -text-white;
+}
+
+.custom-combo .label {
+    -fx-text-fill: -text-white;
+}
+
+/* Стилизация выпадающего списка */
+.combo-box-popup .list-view {
+    -fx-background-color: -tertiary-bg;
+    -fx-background-radius: 8;
+    -fx-border-color: -border-color;
+    -fx-border-radius: 8;
+    -fx-padding: 5;
+}
+
+.combo-box-popup .list-cell {
+    -fx-text-fill: -text-white;
+    -fx-background-color: transparent;
+    -fx-padding: 8 10;
+    -fx-background-radius: 5;
+}
+
+.combo-box-popup .list-cell:hover {
+    -fx-background-color: -hover-bg;
+    -fx-cursor: hand;
+}
+
+.combo-box-popup .list-cell:selected {
+    -fx-background-color: -accent-purple;
+    -fx-text-fill: white;
+}
+
+/* СТИЛИЗАЦИЯ СКРОЛЛА ВНУТРИ СПИСКА (Тонкий и аккуратный) */
+.combo-box-popup .list-view .scroll-bar:vertical {
+    -fx-background-color: transparent;
+    -fx-width: 5;
+}
+
+.combo-box-popup .list-view .scroll-bar:vertical .thumb {
+    -fx-background-color: -text-dark-gray;
+    -fx-background-radius: 10;
+}
+
+* {
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+/* Если розовая рамка висит на самом текстовом поле при ошибке (красная/розовая) */
+.onboarding-card {
+    -fx-border-color: transparent;
+    -fx-background-color: -tertiary-bg; /* или любой другой нужный фон */
+}
+
+
+.context-menu-icon {
+    /* Иконка будет использовать цвет акцента текущей темы */
+    -fx-icon-color: -accent-purple;
+}
+
+/* Если хочешь, чтобы у кнопки удаления иконка всегда была красной,
+   можешь создать для неё отдельный класс */
+.delete-icon {
+    -fx-icon-color: #FF5252;
+}
+
+/* Делаем так, чтобы при наведении появлялся курсор-рука */
+#queueIcon {
+    -fx-cursor: hand;
+}
+
