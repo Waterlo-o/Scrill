@@ -1,4 +1,3 @@
-```markdown
 # 🎵 Scrill Music Player
 
 A modern, feature-rich desktop music player built with JavaFX.
@@ -39,7 +38,7 @@ A modern, feature-rich desktop music player built with JavaFX.
 - 📋 Custom playlists
 - 🔍 Search by title and artist
 - ⬇️ Download music via YouTube links or search
-- 📥 Import YouTube or SoundCloud playlists
+- 📥 Import YouTube playlists
 - 👤 Multiple user profiles
 - 🎨 Multiple themes (Dark, Light, Red, Green, Pink, Nordic, Cream, Penguin)
 - 📊 Listening statistics and streaks
@@ -54,7 +53,7 @@ A modern, feature-rich desktop music player built with JavaFX.
 
 ## Installation
 
-1. Download the latest `Scrill-1.0.0.exe` from [Releases]
+1. Download the latest `Scrill-1.0.0.exe` from [Releases](../../releases)
 2. Run the installer
 3. Choose installation directory
 4. Launch Scrill from desktop shortcut
@@ -62,42 +61,40 @@ A modern, feature-rich desktop music player built with JavaFX.
 ## Building from Source
 
 ### Prerequisites
+
 - JDK 17+
 - Maven (or use included `mvnw`)
 
 ### Steps
-```bash
-git clone https://github.com/Watero-o/Scrill.git
-cd Scrill
-mvnw clean package
-```
+
+    git clone https://github.com/Waterlo-o/Scrill.git
+    cd Scrill
+    mvnw clean package
 
 ### Tools Required for Download Features
+
 Place these in `tools/` folder:
 - [yt-dlp](https://github.com/yt-dlp/yt-dlp/releases) → `tools/yt-dlp.exe`
 - [ffmpeg](https://ffmpeg.org/download.html) → `tools/ffmpeg.exe`
 
 ## Project Structure
-```
 
-src/main/java/com/example/scrill/
-├── controller/          # Business logic controllers
-│   ├── LibraryController.java
-│   ├── NavigationController.java
-│   ├── PlayerController.java
-│   ├── ProfileController.java
-│   └── SettingsController.java
-├── ui/                  # UI builders
-│   ├── DashboardBuilder.java
-│   ├── ModalManager.java
-│   └── SidebarController.java
-├── util/                # Utilities
-│   ├── SpotifyHelper.java
-│   ├── StatsManager.java
-│   └── ThemeManager.java
-└── HelloController.java # Main controller
-```
-
+    src/main/java/com/example/scrill/
+    ├── controller/          # Business logic controllers
+    │   ├── LibraryController.java
+    │   ├── NavigationController.java
+    │   ├── PlayerController.java
+    │   ├── ProfileController.java
+    │   └── SettingsController.java
+    ├── ui/                  # UI builders
+    │   ├── DashboardBuilder.java
+    │   ├── ModalManager.java
+    │   └── SidebarController.java
+    ├── util/                # Utilities
+    │   ├── SpotifyHelper.java
+    │   ├── StatsManager.java
+    │   └── ThemeManager.java
+    └── HelloController.java # Main controller
 
 ## Tech Stack
 
@@ -111,4 +108,3 @@ src/main/java/com/example/scrill/
 ## License
 
 MIT License — see [LICENSE](LICENSE) file
-```
